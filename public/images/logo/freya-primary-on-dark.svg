@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 360" role="img" aria-label="Freya &amp; Company">
   <rect width="1000" height="360" fill="#1C1A17"/>
-  <g text-anchor="middle" font-family="Playfair Display, Georgia, 'Times New Roman', serif" font-style="italic">
-    <text x="500" y="185" font-size="122" fill="#FFF9F0">Freya <tspan fill="#D8C3A5" font-size="130">&amp;</tspan> Company</text>
+  <g text-anchor="middle">
+    <text x="500" y="182" font-family="Cormorant Garamond, Georgia, 'Times New Roman', serif" font-style="italic" font-size="118" fill="#FFF9F0">Freya <tspan font-family="Italianno, 'Snell Roundhand', cursive" font-style="normal" fill="#D8C3A5" font-size="150">&amp;</tspan> Company</text>
   </g>
-  <line x1="410" y1="238" x2="590" y2="238" stroke="#D8C3A5" stroke-width="1.5"/>
-  <text x="500" y="288" text-anchor="middle" font-family="Montserrat, Arial, Helvetica, sans-serif" font-size="30" letter-spacing="16" fill="#D8C3A5">DEFINED BY DETAIL</text>
+  <line x1="400" y1="236" x2="600" y2="236" stroke="#D8C3A5" stroke-width="1.5"/>
+  <text x="500" y="290" text-anchor="middle" font-family="Cinzel Decorative, 'Cormorant Garamond', serif" font-weight="700" font-size="26" letter-spacing="10" fill="#D8C3A5">DEFINED BY DETAIL</text>
 </svg>

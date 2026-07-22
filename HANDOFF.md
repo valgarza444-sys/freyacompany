@@ -21,7 +21,9 @@ or you can update it for her.
 | Request a Quote | `/quote/` | Form → Netlify Forms → email notification |
 | Thank You | `/thank-you/` | Shown after a quote is submitted |
 
-**Brand:** palette + Playfair Display / Montserrat per the brand guide. Colors live in
+**Brand:** palette per the brand guide, with **Cormorant Garamond** (standard serif),
+**Cinzel Decorative** (the "Defined by Detail" tagline & marquee), **Italianno** (flowing
+script accents), and **Montserrat** (UI/nav/labels). Colors + fonts live in
 `src/styles/global.css` (`:root` variables).
 
 **Editable content (no code):**
@@ -156,13 +158,14 @@ Vector + raster logo set lives in `public/images/logo/`:
 | `png/freya-primary-2000.png` | High-res wordmark (transparent) for graphics |
 | `png/freya-stacked-1400.png` | High-res stacked lockup |
 
-The site header uses the monogram + wordmark rendered live in Playfair Display.
+The site header uses the monogram + wordmark rendered live in Cormorant Garamond.
 The favicon (`public/favicon.svg`) matches the monogram.
 
-> The SVGs reference Playfair Display with a Georgia fallback. On the website they
-> render in Playfair (the font is loaded). For pixel-perfect print exports with the
-> exact font baked in, open an SVG in Figma/Illustrator with Playfair Display installed
-> and export, or regenerate the PNGs after installing the font locally.
+> The SVGs reference Cormorant Garamond / Italianno / Cinzel Decorative with system
+> fallbacks (Georgia, Snell Roundhand). On the website they render in the real fonts
+> (loaded via Google Fonts). The PNG exports were rendered with macOS fallback fonts —
+> for pixel-perfect exports with the exact webfonts baked in, open an SVG in
+> Figma/Illustrator with those fonts installed and export.
 
 ---
 
