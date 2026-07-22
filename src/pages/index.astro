@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import Marquee from '../components/Marquee.astro';
 import site from '../data/site.json';
+import home from '../data/home.json';
 
 const services = (await getCollection('services')).sort(
   (a, b) => a.data.order - b.data.order
@@ -17,13 +18,13 @@ const ig = site.social.instagram;
 <Base>
   <!-- Hero -->
   <section class="hero">
-    <div class="hero__media"><img src="/images/hero.svg" alt="" /></div>
+    <div class="hero__media"><img src={home.heroImage} alt="" /></div>
     <div class="hero__frame"></div>
     <div class="wrap hero__inner">
-      <span class="eyebrow" data-reveal style="--d:.1s">Texas Event Styling</span>
+      <span class="eyebrow" data-reveal style="--d:.1s">{home.heroEyebrow}</span>
       <span class="script-accent hero-brand" data-reveal style="--d:.2s">{site.name}</span>
       <h1 data-reveal style="--d:.35s">{site.tagline}</h1>
-      <p data-reveal style="--d:.55s">Romantic, timeless celebrations — tablescaping, backdrops, styling, balloon decor &amp; audio guestbooks.</p>
+      <p data-reveal style="--d:.55s">{home.heroIntro}</p>
       <p data-reveal style="--d:.72s; margin-top:2rem; display:flex; gap:1rem; flex-wrap:wrap;">
         <a class="btn btn--gold" href={site.cta.href}>{site.cta.label}</a>
         <a class="btn btn--ghost" href="/portfolio/">View Portfolio</a>
@@ -39,13 +40,9 @@ const ig = site.social.instagram;
   <section class="section" id="intro">
     <div class="wrap narrow center" data-reveal>
       <span class="script-accent" style="display:block;">Welcome</span>
-      <h2>Refined celebrations, designed down to the last detail</h2>
+      <h2>{home.introHeading}</h2>
       <div class="ornament"><b>◆</b></div>
-      <p style="color:var(--muted);">
-        Based in {site.serviceArea}, {site.name} styles weddings, showers, and intimate
-        gatherings with a vintage, romantic sensibility and a touch of old-Hollywood glamour.
-        Every detail is intentional — nothing left to chance.
-      </p>
+      <p style="color:var(--muted);">{home.introBody}</p>
       <p><a class="btn btn--ghost" href="/about/">Our Story</a></p>
     </div>
   </section>
@@ -54,9 +51,7 @@ const ig = site.social.instagram;
   <section class="section bg-dark center has-watermark">
     <div class="watermark" aria-hidden="true"><span>Celebrate</span></div>
     <div class="wrap" style="display:flex; justify-content:center;">
-      <p class="pullquote" data-reveal="scale">
-        “The details aren't the details. They <span class="amp">are</span> the celebration.”
-      </p>
+      <p class="pullquote" data-reveal="scale">“{home.quote}”</p>
     </div>
   </section>
 
@@ -111,9 +106,9 @@ const ig = site.social.instagram;
     <div class="watermark" aria-hidden="true"><span>Cheers</span></div>
     <div class="wrap narrow" data-reveal>
       <span class="script-accent" style="display:block; margin-bottom:0.2rem;">Let's create</span>
-      <h2>Ready to style your celebration?</h2>
+      <h2>{home.ctaHeading}</h2>
       <div class="ornament"><b>◆</b></div>
-      <p style="color:rgba(255,249,240,0.85);">Tell us about your event and we'll craft a custom proposal — defined by detail.</p>
+      <p style="color:rgba(255,249,240,0.85);">{home.ctaBody}</p>
       <p style="margin-top:2rem; display:flex; gap:1rem; flex-wrap:wrap; justify-content:center;">
         <a class="btn btn--gold" href={site.cta.href}>{site.cta.label}</a>
         {ig && <a class="btn btn--ghost" href={`https://instagram.com/${ig}`} target="_blank" rel="noopener">Follow @{ig}</a>}

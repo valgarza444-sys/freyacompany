@@ -23,7 +23,7 @@ const ig = site.social.instagram;
         </p>
       </div>
       <div data-reveal="right">
-        <img src="/images/about.svg" alt={site.name} style="width:100%; aspect-ratio:4/5; object-fit:cover; border:1px solid var(--line);" />
+        <img src={about?.data.image ?? '/images/about.svg'} alt={site.name} style="width:100%; aspect-ratio:4/5; object-fit:cover; border:1px solid var(--line);" />
       </div>
     </div>
   </section>

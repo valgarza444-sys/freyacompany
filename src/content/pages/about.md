@@ -1,6 +1,7 @@
 ---
 title: About Freya & Company
 intro: Refined, romantic, and timeless event styling — defined by detail.
+image: /images/about.svg
 ---
 
 Freya & Company was founded on a simple belief: the details are everything. Based

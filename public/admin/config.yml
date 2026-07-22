@@ -6,6 +6,10 @@ backend:
   name: git-gateway
   branch: main
 
+# Lets you preview/test the admin panel on localhost without deploying.
+# Run `npx decap-server` alongside `pnpm dev`, then open http://localhost:4321/admin/
+local_backend: true
+
 # Uploaded images are committed here and served from /images/uploads/...
 media_folder: "public/images/uploads"
 public_folder: "/images/uploads"
@@ -22,6 +26,18 @@ collections:
     label: "Business Info & Settings"
     delete: false
     files:
+      - name: home
+        label: "Home Page"
+        file: "src/data/home.json"
+        fields:
+          - { label: "Hero Background Image", name: "heroImage", widget: "image" }
+          - { label: "Hero Small Label", name: "heroEyebrow", widget: "string" }
+          - { label: "Hero Intro Sentence", name: "heroIntro", widget: "text" }
+          - { label: "Welcome Heading", name: "introHeading", widget: "string" }
+          - { label: "Welcome Paragraph", name: "introBody", widget: "text" }
+          - { label: "Feature Quote", name: "quote", widget: "text" }
+          - { label: "Closing Heading", name: "ctaHeading", widget: "string" }
+          - { label: "Closing Paragraph", name: "ctaBody", widget: "text" }
       - name: site
         label: "Business Info"
         file: "src/data/site.json"
@@ -96,4 +112,5 @@ collections:
         fields:
           - { label: "Title", name: "title", widget: "string" }
           - { label: "Intro (short italic line)", name: "intro", widget: "text", required: false }
+          - { label: "Photo", name: "image", widget: "image", required: false }
           - { label: "Body", name: "body", widget: "markdown" }
