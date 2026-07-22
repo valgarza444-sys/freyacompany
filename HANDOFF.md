@@ -57,39 +57,37 @@ Node 20+ required.
 
 ---
 
-## 3. Go-live runbook — set up in the CLIENT's name
+## 3. Go-live runbook — freyacompany.xyz (client-owned accounts)
 
-Do each step logged in as **Freya's** email + payment so nothing is tied to you.
+Domain: **freyacompany.xyz** (already set in the code — `astro.config.mjs`, `robots.txt`,
+`site.json`, `admin/config.yml`). Plan: **client's own GitHub + Netlify**, domain
+**registered through Netlify** (DNS + hosting in one place).
 
-### A. GitHub (source code)
-1. Create a GitHub account for the client (or use hers).
-2. Create a repo, e.g. `freya-and-company-website`.
-3. Push this project:
-   ```bash
-   git init && git add -A && git commit -m "Initial site"
-   git branch -M main
-   git remote add origin https://github.com/<client>/freya-and-company-website.git
-   git push -u origin main
-   ```
+Do each step logged in as **Freya's** email + payment so nothing is tied to the developer.
 
-### B. Netlify (hosting) — free
-1. Sign up at netlify.com with the client's email.
-2. **Add new site → Import from GitHub →** pick the repo.
-3. Build settings are auto-detected from `netlify.toml` (build `npm run build`, publish `dist`).
-   Netlify installs pnpm automatically from the lockfile.
-4. Deploy. You'll get a temporary `*.netlify.app` URL — verify the site loads.
+### A. GitHub (source code) — client's account
+1. Client creates a GitHub account (github.com) with her email.
+2. Create a new **empty** repo, e.g. `freya-and-company-website` (private is fine).
+3. Give the developer push access: repo **Settings → Collaborators → add** the developer's
+   GitHub username. (The developer then pushes the finished project to this repo.)
 
-### C. Domain + DNS
-1. Buy the domain in the client's name (Cloudflare Registrar, Namecheap, or Porkbun).
-   Suggested: `freyaandco.com` / `freyaandcompany.com` (match the IG handle if possible).
-2. In Netlify: **Domain settings → Add a domain →** enter it, follow the DNS instructions
-   (either point nameservers to Netlify, or add the A/CNAME records at your registrar).
-3. Netlify provisions a free SSL certificate automatically (give it a few minutes).
+### B. Netlify (hosting) — client's account, free
+1. Client signs up at netlify.com with her email (can "Sign up with GitHub").
+2. **Add new site → Import an existing project → GitHub →** pick the repo.
+3. Build settings auto-detect from `netlify.toml` (build `npm run build`, publish `dist`).
+4. Deploy → verify the site loads on the temporary `*.netlify.app` URL.
 
-### D. ⚠️ Set the real domain in code (before final deploy)
-Two spots still say `example.com` — update them and push:
-- `astro.config.mjs` → `site: 'https://freyaandco.com'`
-- `public/robots.txt` → the Sitemap URL
+### C. Domain — register through Netlify
+1. Netlify → **Domains → Register a new domain →** search `freyacompany.xyz` → purchase
+   (client's card). ~$12-15/yr.
+2. Netlify → your site → **Domain management → Add a domain →** `freyacompany.xyz`.
+   Because it's registered at Netlify, DNS is configured automatically.
+3. Netlify auto-provisions a free SSL certificate (a few minutes). Also add the `www`
+   redirect if desired.
+
+### D. Set the real domain in code — ✅ DONE
+Already set to `https://freyacompany.xyz` in `astro.config.mjs`, `public/robots.txt`,
+`src/data/site.json`, and `public/admin/config.yml`.
 
 ### E. Turn on the CMS (so Freya can self-edit)
 1. Netlify → **Site configuration → Identity → Enable Identity.**
