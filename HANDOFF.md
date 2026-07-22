@@ -26,11 +26,18 @@ or you can update it for her.
 script accents), and **Montserrat** (UI/nav/labels). Colors + fonts live in
 `src/styles/global.css` (`:root` variables).
 
-**Editable content (no code):**
+**Editable content (no code — all via `/admin`):**
 - `src/data/site.json` — business name, tagline, phone, email, Instagram, etc.
+- `src/data/home.json` — homepage hero image + all homepage copy
+- `src/data/theme.json` — **Fonts & Theme** (client picks fonts from a curated list)
 - `src/content/services/*.md` — the five services
-- `src/content/portfolio/*.md` — past events
-- `src/content/pages/about.md` — About page
+- `src/content/portfolio/*.md` — past events (cover + gallery photos)
+- `src/content/pages/about.md` — About page text + photo
+
+**Font picker:** the CMS "Fonts & Theme" panel lets the client swap the heading, body,
+script-accent, and hero-tagline fonts from a curated list. To add more choices, add the
+font to `src/data/fonts.js` (with its Google Fonts params) **and** to the matching
+`options:` list in `public/admin/config.yml`.
 
 > ⚠️ **Placeholder images** in `public/images/` are branded SVGs. Replace them with real
 > event photos (via the CMS, or drop files into `public/images/` and update the paths).

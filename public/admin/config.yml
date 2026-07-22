@@ -38,6 +38,30 @@ collections:
           - { label: "Feature Quote", name: "quote", widget: "text" }
           - { label: "Closing Heading", name: "ctaHeading", widget: "string" }
           - { label: "Closing Paragraph", name: "ctaBody", widget: "text" }
+      - name: theme
+        label: "Fonts & Theme"
+        file: "src/data/theme.json"
+        fields:
+          - label: "Heading & Logo Font"
+            name: "headingFont"
+            widget: "select"
+            default: "Cormorant Garamond"
+            options: ["Cormorant Garamond", "Playfair Display", "EB Garamond", "Cormorant", "Libre Baskerville", "Marcellus", "Cinzel"]
+          - label: "Body Text Font"
+            name: "bodyFont"
+            widget: "select"
+            default: "Cormorant Garamond"
+            options: ["Cormorant Garamond", "EB Garamond", "Libre Baskerville", "Marcellus", "Montserrat", "Jost"]
+          - label: "Script Accent Font (Welcome, Let's create)"
+            name: "scriptFont"
+            widget: "select"
+            default: "Italianno"
+            options: ["Italianno", "Great Vibes", "Tangerine", "Pinyon Script"]
+          - label: "Hero Tagline Font"
+            name: "decoFont"
+            widget: "select"
+            default: "Cinzel Decorative"
+            options: ["Cinzel Decorative", "Cinzel", "Cormorant Garamond", "Playfair Display", "Marcellus"]
       - name: site
         label: "Business Info"
         file: "src/data/site.json"

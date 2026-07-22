@@ -3,6 +3,11 @@ import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import site from '../data/site.json';
+import theme from '../data/theme.json';
+import { buildFontTheme } from '../data/fonts.js';
+
+// Fonts chosen by the client in the CMS (Fonts & Theme) → link href + :root overrides
+const fontTheme = buildFontTheme(theme);
 
 interface Props {
   title?: string;
@@ -17,7 +22,7 @@ const ogImage = new URL(image, Astro.site ?? Astro.url).toString();
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" style={fontTheme.style}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -38,10 +43,7 @@ const ogImage = new URL(image, Astro.site ?? Astro.url).toString();
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Cinzel+Decorative:wght@400;700;900&family=Italianno&family=Montserrat:wght@300;400;500&display=swap"
-      rel="stylesheet"
-    />
+    <link href={fontTheme.href} rel="stylesheet" />
   </head>
   <body>
     <a class="skip" href="#main">Skip to content</a>
