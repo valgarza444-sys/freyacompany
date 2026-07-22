@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
+import Marquee from '../components/Marquee.astro';
 import site from '../data/site.json';
 
 const services = (await getCollection('services')).sort(
@@ -18,22 +19,26 @@ const ig = site.social.instagram;
   <section class="hero">
     <div class="hero__media"><img src="/images/hero.svg" alt="" /></div>
     <div class="wrap hero__inner">
-      <span class="eyebrow">Texas Event Styling</span>
-      <h1>{site.tagline}</h1>
-      <p>{site.name} designs romantic, timeless celebrations — tablescaping, backdrops, styling, balloon decor &amp; audio guestbooks.</p>
-      <p style="margin-top:2rem; display:flex; gap:1rem; flex-wrap:wrap;">
+      <span class="eyebrow" data-reveal style="--d:.1s">Texas Event Styling</span>
+      <h1 data-reveal style="--d:.25s">{site.tagline}</h1>
+      <p data-reveal style="--d:.45s">{site.name} designs romantic, timeless celebrations — tablescaping, backdrops, styling, balloon decor &amp; audio guestbooks.</p>
+      <p data-reveal style="--d:.6s; margin-top:2rem; display:flex; gap:1rem; flex-wrap:wrap;">
         <a class="btn btn--gold" href={site.cta.href}>{site.cta.label}</a>
         <a class="btn btn--ghost" href="/portfolio/">View Portfolio</a>
       </p>
     </div>
+    <a class="scroll-cue" href="#intro" aria-label="Scroll down">Discover<span></span></a>
   </section>
 
+  <!-- Marquee ribbon -->
+  <Marquee />
+
   <!-- Intro -->
-  <section class="section">
-    <div class="wrap narrow center">
+  <section class="section" id="intro">
+    <div class="wrap narrow center" data-reveal>
       <span class="eyebrow">Welcome</span>
       <h2>Refined celebrations, designed down to the last detail</h2>
-      <hr class="rule" />
+      <div class="ornament"><b>◆</b></div>
       <p style="color:var(--muted);">
         Based in {site.serviceArea}, {site.name} styles weddings, showers, and intimate
         gatherings with a vintage, romantic sensibility and a touch of old-Hollywood glamour.
@@ -43,24 +48,33 @@ const ig = site.social.instagram;
     </div>
   </section>
 
+  <!-- Philosophy pull-quote -->
+  <section class="section bg-dark center">
+    <div class="wrap" style="display:flex; justify-content:center;">
+      <p class="pullquote" data-reveal="scale">
+        “The details aren't the details. They <span class="amp">are</span> the celebration.”
+      </p>
+    </div>
+  </section>
+
   <!-- Services -->
   <section class="section bg-alt">
     <div class="wrap">
-      <div class="center" style="margin-bottom:3rem;">
+      <div class="center" style="margin-bottom:3rem;" data-reveal>
         <span class="eyebrow">What We Offer</span>
         <h2>Services</h2>
-        <hr class="rule" />
+        <div class="ornament"><b>◆</b></div>
       </div>
       <div class="grid grid--3">
-        {services.map((s) => (
-          <article class="card">
+        {services.map((s, i) => (
+          <article class="card" data-reveal style={`--d:${i * 0.08}s`}>
             <span class="icon">{s.data.icon}</span>
             <h3>{s.data.title}</h3>
             <p>{s.data.summary}</p>
           </article>
         ))}
       </div>
-      <p class="center" style="margin-top:3rem;"><a class="btn btn--ghost" href="/services/">All Services</a></p>
+      <p class="center" style="margin-top:3rem;" data-reveal><a class="btn btn--ghost" href="/services/">All Services</a></p>
     </div>
   </section>
 
@@ -68,14 +82,14 @@ const ig = site.social.instagram;
   {featured.length > 0 && (
     <section class="section">
       <div class="wrap">
-        <div class="center" style="margin-bottom:3rem;">
+        <div class="center" style="margin-bottom:3rem;" data-reveal>
           <span class="eyebrow">Recent Work</span>
           <h2>Portfolio</h2>
-          <hr class="rule" />
+          <div class="ornament"><b>◆</b></div>
         </div>
         <div class="grid grid--3">
-          {featured.map((p) => (
-            <a class="tile" href="/portfolio/">
+          {featured.map((p, i) => (
+            <a class={`tile${i === 0 ? ' tile--feature' : ''}`} href="/portfolio/" data-reveal style={`--d:${i * 0.1}s`}>
               <img src={p.data.cover} alt={p.data.title} loading="lazy" />
               <figcaption>
                 {p.data.category && <span class="cat">{p.data.category}</span>}
@@ -84,17 +98,17 @@ const ig = site.social.instagram;
             </a>
           ))}
         </div>
-        <p class="center" style="margin-top:3rem;"><a class="btn btn--ghost" href="/portfolio/">View Full Portfolio</a></p>
+        <p class="center" style="margin-top:3rem;" data-reveal><a class="btn btn--ghost" href="/portfolio/">View Full Portfolio</a></p>
       </div>
     </section>
   )}
 
   <!-- CTA band -->
   <section class="section bg-dark center">
-    <div class="wrap narrow">
+    <div class="wrap narrow" data-reveal>
       <span class="eyebrow">Let's Create Something Beautiful</span>
       <h2>Ready to style your celebration?</h2>
-      <hr class="rule" />
+      <div class="ornament"><b>◆</b></div>
       <p style="color:rgba(255,249,240,0.85);">Tell us about your event and we'll craft a custom proposal — defined by detail.</p>
       <p style="margin-top:2rem; display:flex; gap:1rem; flex-wrap:wrap; justify-content:center;">
         <a class="btn btn--gold" href={site.cta.href}>{site.cta.label}</a>

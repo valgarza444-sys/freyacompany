@@ -51,6 +51,34 @@ const ogImage = new URL(image, Astro.site ?? Astro.url).toString();
     </main>
     <Footer />
 
+    <!-- Scroll-reveal + sticky-header polish -->
+    <script>
+      // Reveal elements as they enter the viewport
+      const reveals = document.querySelectorAll('[data-reveal]');
+      if ('IntersectionObserver' in window && reveals.length) {
+        const io = new IntersectionObserver(
+          (entries) => {
+            for (const e of entries) {
+              if (e.isIntersecting) {
+                e.target.classList.add('is-visible');
+                io.unobserve(e.target);
+              }
+            }
+          },
+          { threshold: 0.12, rootMargin: '0px 0px -8% 0px' }
+        );
+        reveals.forEach((el) => io.observe(el));
+      } else {
+        reveals.forEach((el) => el.classList.add('is-visible'));
+      }
+
+      // Add a subtle background/shadow to the header once scrolled
+      const header = document.querySelector('.site-header');
+      const onScroll = () => header?.classList.toggle('scrolled', window.scrollY > 24);
+      onScroll();
+      window.addEventListener('scroll', onScroll, { passive: true });
+    </script>
+
     <!-- Netlify Identity: enables CMS invite / password-recovery links to work sitewide -->
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
     <script>

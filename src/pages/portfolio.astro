@@ -10,10 +10,10 @@ const events = (await getCollection('portfolio')).sort(
 
 <Base title="Portfolio" description={`A selection of past events styled by ${site.name} across ${site.serviceArea}.`}>
   <section class="section">
-    <div class="wrap narrow center">
+    <div class="wrap narrow center" data-reveal>
       <span class="eyebrow">Our Work</span>
       <h1>Portfolio</h1>
-      <hr class="rule" />
+      <div class="ornament"><b>◆</b></div>
       <p style="color:var(--muted);">A selection of celebrations we've styled — each one designed to feel intentional, romantic, and timeless.</p>
     </div>
   </section>
@@ -21,8 +21,8 @@ const events = (await getCollection('portfolio')).sort(
   <section class="section" style="padding-top:0;">
     <div class="wrap">
       <div class="grid grid--3">
-        {events.map((p) => (
-          <figure class="tile" style="margin:0;">
+        {events.map((p, i) => (
+          <figure class="tile" data-reveal style={`margin:0; --d:${(i % 3) * 0.09}s`}>
             <img src={p.data.cover} alt={p.data.title} loading="lazy" />
             <figcaption>
               {p.data.category && <span class="cat">{p.data.category}{p.data.date ? ` · ${p.data.date}` : ''}</span>}

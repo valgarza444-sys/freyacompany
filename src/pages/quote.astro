@@ -17,16 +17,16 @@ const ig = site.social.instagram;
 
 <Base title="Request a Quote" description={`Request a custom event styling quote from ${site.name}. Tell us about your celebration and we'll craft a proposal.`}>
   <section class="section">
-    <div class="wrap narrow center">
+    <div class="wrap narrow center" data-reveal>
       <span class="eyebrow">Let's Begin</span>
       <h1>Request a Quote</h1>
-      <hr class="rule" />
+      <div class="ornament"><b>◆</b></div>
       <p style="color:var(--muted);">Share a few details about your celebration and we'll be in touch with a custom proposal. Fields marked <span style="color:var(--rose);">*</span> are required.</p>
     </div>
   </section>
 
   <section class="section bg-alt" style="padding-top:0;">
-    <div class="wrap narrow">
+    <div class="wrap narrow" data-reveal>
       <form
         name="quote"
         method="POST"

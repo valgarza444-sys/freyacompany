@@ -227,6 +227,105 @@ a { color: inherit; }
 .prose ul { padding-left: 1.2em; }
 .prose a { color: var(--gold); }
 
+/* ============================================================
+   Motion & Polish — cinematic, editorial "wow" layer
+   ============================================================ */
+
+/* Scroll-reveal: elements fade + rise as they enter the viewport */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.9s cubic-bezier(0.22, 0.61, 0.36, 1),
+              transform 0.9s cubic-bezier(0.22, 0.61, 0.36, 1);
+  transition-delay: var(--d, 0s);
+  will-change: opacity, transform;
+}
+[data-reveal="left"]  { transform: translateX(-32px); }
+[data-reveal="right"] { transform: translateX(32px); }
+[data-reveal="scale"] { transform: scale(0.94); }
+[data-reveal].is-visible { opacity: 1; transform: none; }
+
+/* Hero — cinematic full-bleed with a slow Ken Burns push-in */
+.hero { min-height: 94vh; display: flex; align-items: center; overflow: hidden; }
+.hero__media img { animation: kenburns 20s ease-out both; transform-origin: 60% 40%; }
+@keyframes kenburns { from { transform: scale(1.14); } to { transform: scale(1); } }
+.hero::after { background: linear-gradient(105deg, rgba(28,26,23,0.74) 0%, rgba(28,26,23,0.42) 45%, rgba(28,26,23,0.28) 100%); }
+.hero h1 { font-size: clamp(3rem, 1.6rem + 6.4vw, 6.75rem); }
+.hero .eyebrow { position: relative; padding-left: 3.6rem; }
+.hero .eyebrow::before { content: ""; position: absolute; left: 0; top: 50%; width: 2.6rem; height: 1px; background: var(--champagne); }
+
+/* Scroll cue at the base of the hero */
+.scroll-cue {
+  position: absolute; left: 50%; bottom: 1.75rem; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+  color: var(--champagne); font-family: var(--font-body);
+  font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; text-decoration: none;
+}
+.scroll-cue span { width: 1px; height: 46px; background: linear-gradient(var(--champagne), transparent); animation: cue 2.2s ease-in-out infinite; }
+@keyframes cue { 0%,100% { opacity: 0.3; transform: scaleY(0.6); transform-origin: top; } 50% { opacity: 1; transform: scaleY(1); } }
+
+/* Gold marquee ribbon */
+.marquee { overflow: hidden; background: var(--black); color: var(--cream); border-block: 1px solid rgba(184,154,94,0.4); padding-block: 1.15rem; }
+.marquee__track { display: inline-flex; align-items: center; white-space: nowrap; will-change: transform; animation: marquee 32s linear infinite; }
+.marquee:hover .marquee__track { animation-play-state: paused; }
+.marquee__track > * { padding-inline: 1.6rem; font-family: var(--font-display); font-style: italic; font-size: clamp(1.35rem, 0.9rem + 1.8vw, 2.4rem); }
+.marquee .dot { color: var(--gold); font-style: normal; }
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* Ornamental divider — gold hairlines flanking a diamond */
+.ornament { display: flex; align-items: center; justify-content: center; gap: 1rem; color: var(--gold); margin: 1.25rem 0; }
+.ornament::before, .ornament::after { content: ""; height: 1px; width: clamp(40px, 8vw, 80px); background: currentColor; opacity: 0.55; }
+.ornament b { font-size: 0.6rem; transform: rotate(45deg); display: inline-block; }
+.center .ornament { margin-inline: auto; }
+
+/* Buttons — subtle lift + gold underline sweep already invert on hover */
+.btn { position: relative; transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease; }
+.btn:hover { transform: translateY(-2px); box-shadow: 0 14px 28px -18px rgba(28,26,23,0.55); }
+
+/* Nav links — animated gold underline */
+.nav a { position: relative; }
+.nav a:not(.btn)::after { content: ""; position: absolute; left: 0; bottom: -5px; height: 1px; width: 0; background: var(--gold); transition: width 0.3s ease; }
+.nav a:not(.btn):hover::after, .nav a:not(.btn)[aria-current="page"]::after { width: 100%; }
+
+/* Cards — hover lift + gold top-border reveal */
+.card { position: relative; transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease; overflow: hidden; }
+.card::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 2px; background: var(--gold); transform: scaleX(0); transform-origin: left; transition: transform 0.5s cubic-bezier(0.22,0.61,0.36,1); }
+.card:hover { transform: translateY(-8px); box-shadow: 0 26px 50px -30px rgba(28,26,23,0.45); border-color: transparent; }
+.card:hover::before { transform: scaleX(1); }
+.card .icon { transition: transform 0.4s ease; }
+.card:hover .icon { transform: translateY(-3px) scale(1.08); }
+
+/* Portfolio tiles — deeper hover, letter-spaced caption rise */
+.tile figcaption { transition: padding-bottom 0.4s ease; }
+.tile:hover figcaption { padding-bottom: 1.7rem; }
+.tile::after { content: ""; position: absolute; inset: 0; border: 1px solid rgba(216,195,165,0); transition: border-color 0.4s ease; pointer-events: none; }
+.tile:hover::after { border-color: rgba(216,195,165,0.6); }
+
+/* Featured portfolio tile spans two columns on wider screens */
+@media (min-width: 860px) {
+  .tile--feature { grid-column: span 2; }
+  .tile--feature img { aspect-ratio: 16 / 11; }
+}
+
+/* Dramatic pull-quote / philosophy block */
+.pullquote { font-family: var(--font-display); font-style: italic; line-height: 1.24; font-size: clamp(1.7rem, 0.9rem + 3.4vw, 3.4rem); max-width: 22ch; }
+.pullquote .amp { color: var(--gold); }
+
+/* Header — refined scrolled state */
+.site-header { transition: background 0.35s ease, box-shadow 0.35s ease, padding 0.35s ease; }
+.site-header.scrolled { box-shadow: 0 10px 30px -22px rgba(28,26,23,0.5); }
+.site-header .bar { transition: padding-block 0.35s ease; }
+.site-header.scrolled .bar { padding-block: 0.75rem; }
+
+/* Brand monogram gentle rotate on hover */
+.brand__mark { transition: transform 0.6s cubic-bezier(0.22,0.61,0.36,1); }
+.brand:hover .brand__mark { transform: rotate(-8deg); }
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] { opacity: 1 !important; transform: none !important; }
+  .hero__media img, .marquee__track, .scroll-cue span { animation: none !important; }
+}
+
 /* ---------- Accessibility ---------- */
 :focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
 .skip { position: absolute; left: -9999px; }

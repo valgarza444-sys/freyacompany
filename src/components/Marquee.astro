@@ -1,0 +1,22 @@
+---
+interface Props { items?: string[] }
+const {
+  items = [
+    'Tablescaping', 'Backdrop Rentals', 'Event Styling',
+    'Balloon Decor', 'Audio Guestbook', 'Defined by Detail',
+  ],
+} = Astro.props;
+// Duplicated once so the -50% translate loops seamlessly.
+const loop = [...items, ...items];
+---
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__track">
+    {loop.map((item) => (
+      <>
+        <span>{item}</span>
+        <span class="dot">✦</span>
+      </>
+    ))}
+  </div>
+</div>
