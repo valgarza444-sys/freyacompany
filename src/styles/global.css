@@ -263,6 +263,12 @@ a { color: inherit; }
 .hero__inner { position: relative; z-index: 2; }
 /* Script pre-headline + Cinzel Decorative tagline */
 .hero .script-accent { color: var(--champagne); margin-bottom: -0.35em; display: block; }
+/* Hero brand line — Cormorant italic (matches the logo wordmark), not script */
+.hero .hero-brand {
+  font-family: var(--font-display); font-style: italic; font-weight: 500;
+  font-size: clamp(1.5rem, 1rem + 2.2vw, 2.7rem); letter-spacing: 0.02em;
+  margin-bottom: 0.25em;
+}
 .hero h1 {
   font-family: var(--font-deco); font-weight: 700; text-transform: uppercase;
   letter-spacing: 0.05em; line-height: 1.14;
