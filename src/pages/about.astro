@@ -1,0 +1,30 @@
+---
+import { getEntry, render } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import site from '../data/site.json';
+
+const about = await getEntry('pages', 'about');
+const { Content } = await render(about!);
+const ig = site.social.instagram;
+---
+
+<Base title="About" description={about?.data.intro ?? site.description}>
+  <section class="section">
+    <div class="wrap grid grid--2" style="align-items:center; gap:clamp(2rem,5vw,4rem);">
+      <div>
+        <span class="eyebrow">Our Story</span>
+        <h1>{about?.data.title}</h1>
+        <hr class="rule" />
+        {about?.data.intro && <p style="font-family:var(--font-display); font-size:1.4rem; font-style:italic; color:var(--ink);">{about.data.intro}</p>}
+        <div class="prose" style="color:var(--muted);"><Content /></div>
+        <p style="margin-top:2rem; display:flex; gap:1rem; flex-wrap:wrap;">
+          <a class="btn btn--gold" href={site.cta.href}>{site.cta.label}</a>
+          {ig && <a class="btn btn--ghost" href={`https://instagram.com/${ig}`} target="_blank" rel="noopener">@{ig}</a>}
+        </p>
+      </div>
+      <div>
+        <img src="/images/about.svg" alt={site.name} style="width:100%; aspect-ratio:4/5; object-fit:cover; border:1px solid var(--line);" />
+      </div>
+    </div>
+  </section>
+</Base>

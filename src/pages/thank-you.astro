@@ -1,0 +1,20 @@
+---
+import Base from '../layouts/Base.astro';
+import site from '../data/site.json';
+const ig = site.social.instagram;
+---
+
+<Base title="Thank You" description="Your request has been received.">
+  <section class="section center" style="min-height:52vh; display:flex; align-items:center;">
+    <div class="wrap narrow">
+      <span class="eyebrow">Received</span>
+      <h1>Thank you</h1>
+      <hr class="rule" />
+      <p style="color:var(--muted);">Your request is on its way to {site.name}. We'll review the details and be in touch soon with a custom proposal — defined by detail.</p>
+      <p style="margin-top:2rem; display:flex; gap:1rem; flex-wrap:wrap; justify-content:center;">
+        <a class="btn btn--gold" href="/portfolio/">View Portfolio</a>
+        {ig && <a class="btn btn--ghost" href={`https://instagram.com/${ig}`} target="_blank" rel="noopener">Follow @{ig}</a>}
+      </p>
+    </div>
+  </section>
+</Base>

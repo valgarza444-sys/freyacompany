@@ -1,0 +1,39 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import site from '../data/site.json';
+
+const services = (await getCollection('services')).sort(
+  (a, b) => a.data.order - b.data.order
+);
+const rendered = await Promise.all(
+  services.map(async (s) => ({ ...s, Body: (await render(s)).Content }))
+);
+---
+
+<Base title="Services" description={`Event styling services by ${site.name} — tablescaping, backdrop rentals, event styling, balloon decor, and audio guestbooks.`}>
+  <section class="section">
+    <div class="wrap narrow center">
+      <span class="eyebrow">What We Offer</span>
+      <h1>Services</h1>
+      <hr class="rule" />
+      <p style="color:var(--muted);">A full suite of styling services to bring your celebration to life — mixed and matched to suit your event.</p>
+    </div>
+  </section>
+
+  <section class="section bg-alt" style="padding-top:0;">
+    <div class="wrap">
+      <div class="grid grid--2">
+        {rendered.map((s) => (
+          <article class="card">
+            <span class="icon">{s.data.icon}</span>
+            <h2 style="font-size:1.6rem;">{s.data.title}</h2>
+            <p style="color:var(--ink);">{s.data.summary}</p>
+            <div class="prose" style="color:var(--muted); font-size:0.95rem;"><s.Body /></div>
+          </article>
+        ))}
+      </div>
+      <p class="center" style="margin-top:3.5rem;"><a class="btn btn--gold" href={site.cta.href}>{site.cta.label}</a></p>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 520" role="img" aria-label="Freya &amp; Company">
+  
+  <text x="360" y="150" text-anchor="middle" font-family="Montserrat, Arial, Helvetica, sans-serif" font-size="34" letter-spacing="24" fill="#1C1A17">FREYA</text>
+  <text x="360" y="300" text-anchor="middle" font-family="Playfair Display, Georgia, 'Times New Roman', serif" font-style="italic" font-size="150" fill="#B89A5E">&amp;</text>
+  <text x="360" y="410" text-anchor="middle" font-family="Montserrat, Arial, Helvetica, sans-serif" font-size="34" letter-spacing="18" fill="#1C1A17">COMPANY</text>
+  <line x1="270" y1="455" x2="450" y2="455" stroke="#B89A5E" stroke-width="1.5"/>
+  <text x="360" y="495" text-anchor="middle" font-family="Montserrat, Arial, Helvetica, sans-serif" font-size="19" letter-spacing="9" fill="#B89A5E">DEFINED BY DETAIL</text>
+</svg>

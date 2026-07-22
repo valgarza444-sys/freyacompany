@@ -1,0 +1,54 @@
+---
+import site from '../data/site.json';
+
+const links = [
+  { href: '/', label: 'Home' },
+  { href: '/services/', label: 'Services' },
+  { href: '/portfolio/', label: 'Portfolio' },
+  { href: '/about/', label: 'About' },
+];
+const path = Astro.url.pathname;
+const isActive = (href: string) =>
+  href === '/' ? path === '/' : path.startsWith(href);
+---
+
+<header class="site-header">
+  <div class="wrap bar">
+    <a class="brand brand--lockup" href="/" aria-label={`${site.name} — home`}>
+      <svg class="brand__mark" viewBox="0 0 400 400" aria-hidden="true">
+        <circle cx="200" cy="200" r="176" fill="none" stroke="currentColor" stroke-width="6"/>
+        <circle cx="200" cy="200" r="160" fill="none" stroke="currentColor" stroke-width="3" opacity="0.5"/>
+        <text x="205" y="272" text-anchor="middle" font-family="var(--font-display)" font-style="italic" font-size="220" fill="currentColor">F</text>
+      </svg>
+      <span class="brand__text">
+        {site.name}
+        <small>{site.tagline}</small>
+      </span>
+    </a>
+
+    <nav class="nav" aria-label="Primary">
+      {links.map((l) => (
+        <a href={l.href} aria-current={isActive(l.href) ? 'page' : undefined}>{l.label}</a>
+      ))}
+      <a class="btn" href={site.cta.href}>{site.cta.label}</a>
+    </nav>
+
+    <button class="menu-toggle" aria-expanded="false" aria-controls="mobile-nav">Menu</button>
+  </div>
+
+  <nav id="mobile-nav" class="mobile-nav wrap" aria-label="Mobile">
+    {links.map((l) => (
+      <a href={l.href} aria-current={isActive(l.href) ? 'page' : undefined}>{l.label}</a>
+    ))}
+    <a href={site.cta.href}>{site.cta.label}</a>
+  </nav>
+</header>
+
+<script>
+  const toggle = document.querySelector('.menu-toggle');
+  const menu = document.getElementById('mobile-nav');
+  toggle?.addEventListener('click', () => {
+    const open = menu?.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', String(!!open));
+  });
+</script>

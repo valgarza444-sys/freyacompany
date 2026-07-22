@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-label="DEFINED BY DETAIL">
+  <rect width="1600" height="1000" fill="#1C1A17"/>
+  <rect x="40" y="40" width="1520" height="920" fill="none" stroke="#D8C3A5" stroke-width="1.5" opacity="0.6"/>
+  <g fill="#D8C3A5" text-anchor="middle" font-family="Playfair Display, Georgia, serif">
+    <text x="800" y="490" font-size="140" font-style="italic">F</text>
+    <text x="800" y="590" font-size="34" letter-spacing="10" font-family="Montserrat, Arial, sans-serif">FREYA &amp; CO.</text>
+  </g>
+  <text x="800" y="910" fill="#D8C3A5" text-anchor="middle" font-size="22" letter-spacing="6" opacity="0.7" font-family="Montserrat, Arial, sans-serif">DEFINED BY DETAIL</text>
+</svg>

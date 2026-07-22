@@ -1,0 +1,117 @@
+---
+import Base from '../layouts/Base.astro';
+import site from '../data/site.json';
+
+const eventTypes = [
+  'Wedding', 'Bridal Shower', 'Baby Shower', 'Birthday',
+  'Anniversary', 'Engagement', 'Corporate Event', 'Private Dinner', 'Other',
+];
+const serviceOptions = [
+  'Tablescaping', 'Backdrop Rentals', 'Event Styling', 'Balloon Decor', 'Audio Guestbook',
+];
+const budgets = [
+  'Under $500', '$500 – $1,000', '$1,000 – $2,500', '$2,500 – $5,000', '$5,000+', 'Not sure yet',
+];
+const ig = site.social.instagram;
+---
+
+<Base title="Request a Quote" description={`Request a custom event styling quote from ${site.name}. Tell us about your celebration and we'll craft a proposal.`}>
+  <section class="section">
+    <div class="wrap narrow center">
+      <span class="eyebrow">Let's Begin</span>
+      <h1>Request a Quote</h1>
+      <hr class="rule" />
+      <p style="color:var(--muted);">Share a few details about your celebration and we'll be in touch with a custom proposal. Fields marked <span style="color:var(--rose);">*</span> are required.</p>
+    </div>
+  </section>
+
+  <section class="section bg-alt" style="padding-top:0;">
+    <div class="wrap narrow">
+      <form
+        name="quote"
+        method="POST"
+        action="/thank-you/"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+        enctype="multipart/form-data"
+        style="background:var(--cream); border:1px solid var(--line); padding:clamp(1.5rem,4vw,3rem);"
+      >
+        <input type="hidden" name="form-name" value="quote" />
+        <p class="hp">
+          <label>Leave this field empty <input name="bot-field" /></label>
+        </p>
+
+        <div class="grid grid--2">
+          <div class="field">
+            <label for="name">Full Name <span class="req">*</span></label>
+            <input id="name" name="name" type="text" required autocomplete="name" />
+          </div>
+          <div class="field">
+            <label for="email">Email <span class="req">*</span></label>
+            <input id="email" name="email" type="email" required autocomplete="email" />
+          </div>
+        </div>
+
+        <div class="grid grid--2">
+          <div class="field">
+            <label for="phone">Phone</label>
+            <input id="phone" name="phone" type="tel" autocomplete="tel" />
+          </div>
+          <div class="field">
+            <label for="event-date">Event Date</label>
+            <input id="event-date" name="event-date" type="date" />
+          </div>
+        </div>
+
+        <div class="grid grid--2">
+          <div class="field">
+            <label for="event-type">Event Type</label>
+            <select id="event-type" name="event-type">
+              <option value="">Select…</option>
+              {eventTypes.map((t) => <option value={t}>{t}</option>)}
+            </select>
+          </div>
+          <div class="field">
+            <label for="budget">Estimated Budget</label>
+            <select id="budget" name="budget">
+              <option value="">Select…</option>
+              {budgets.map((b) => <option value={b}>{b}</option>)}
+            </select>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Services You're Interested In</label>
+          <div class="checks">
+            {serviceOptions.map((s) => (
+              <label><input type="checkbox" name="services" value={s} /> {s}</label>
+            ))}
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="guests">Approximate Guest Count</label>
+          <input id="guests" name="guests" type="number" min="1" inputmode="numeric" />
+        </div>
+
+        <div class="field">
+          <label for="vision">Tell Us About Your Vision — Backdrop, Colors, Theme &amp; Details</label>
+          <textarea id="vision" name="vision" placeholder="Describe the look and feel you're dreaming of…"></textarea>
+        </div>
+
+        <div class="field">
+          <label for="inspiration">Inspiration Photo (optional)</label>
+          <input id="inspiration" name="inspiration" type="file" accept="image/*" />
+        </div>
+
+        <button class="btn btn--gold" type="submit" style="width:100%;">{site.cta.label}</button>
+      </form>
+
+      <p class="center" style="margin-top:2rem; color:var(--muted); font-size:0.9rem;">
+        Prefer to reach out directly?
+        {ig && <> Message us on <a href={`https://instagram.com/${ig}`} target="_blank" rel="noopener" style="color:var(--gold);">Instagram @{ig}</a>.</>}
+        {site.email && <> Or email <a href={`mailto:${site.email}`} style="color:var(--gold);">{site.email}</a>.</>}
+      </p>
+    </div>
+  </section>
+</Base>

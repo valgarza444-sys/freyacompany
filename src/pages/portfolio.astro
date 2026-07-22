@@ -1,0 +1,45 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import site from '../data/site.json';
+
+const events = (await getCollection('portfolio')).sort(
+  (a, b) => a.data.order - b.data.order
+);
+---
+
+<Base title="Portfolio" description={`A selection of past events styled by ${site.name} across ${site.serviceArea}.`}>
+  <section class="section">
+    <div class="wrap narrow center">
+      <span class="eyebrow">Our Work</span>
+      <h1>Portfolio</h1>
+      <hr class="rule" />
+      <p style="color:var(--muted);">A selection of celebrations we've styled — each one designed to feel intentional, romantic, and timeless.</p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0;">
+    <div class="wrap">
+      <div class="grid grid--3">
+        {events.map((p) => (
+          <figure class="tile" style="margin:0;">
+            <img src={p.data.cover} alt={p.data.title} loading="lazy" />
+            <figcaption>
+              {p.data.category && <span class="cat">{p.data.category}{p.data.date ? ` · ${p.data.date}` : ''}</span>}
+              <h3>{p.data.title}</h3>
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-dark center" style="padding-top:0; background:var(--black);">
+    <div class="wrap narrow" style="padding-top:var(--section-y);">
+      <h2>Your event could be next.</h2>
+      <hr class="rule" />
+      <p style="color:rgba(255,249,240,0.85);">Let's design something unforgettable together.</p>
+      <p style="margin-top:2rem;"><a class="btn btn--gold" href={site.cta.href}>{site.cta.label}</a></p>
+    </div>
+  </section>
+</Base>

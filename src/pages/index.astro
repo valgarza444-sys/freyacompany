@@ -1,0 +1,105 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import site from '../data/site.json';
+
+const services = (await getCollection('services')).sort(
+  (a, b) => a.data.order - b.data.order
+);
+const featured = (await getCollection('portfolio'))
+  .filter((p) => p.data.featured)
+  .sort((a, b) => a.data.order - b.data.order)
+  .slice(0, 3);
+const ig = site.social.instagram;
+---
+
+<Base>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero__media"><img src="/images/hero.svg" alt="" /></div>
+    <div class="wrap hero__inner">
+      <span class="eyebrow">Texas Event Styling</span>
+      <h1>{site.tagline}</h1>
+      <p>{site.name} designs romantic, timeless celebrations — tablescaping, backdrops, styling, balloon decor &amp; audio guestbooks.</p>
+      <p style="margin-top:2rem; display:flex; gap:1rem; flex-wrap:wrap;">
+        <a class="btn btn--gold" href={site.cta.href}>{site.cta.label}</a>
+        <a class="btn btn--ghost" href="/portfolio/">View Portfolio</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- Intro -->
+  <section class="section">
+    <div class="wrap narrow center">
+      <span class="eyebrow">Welcome</span>
+      <h2>Refined celebrations, designed down to the last detail</h2>
+      <hr class="rule" />
+      <p style="color:var(--muted);">
+        Based in {site.serviceArea}, {site.name} styles weddings, showers, and intimate
+        gatherings with a vintage, romantic sensibility and a touch of old-Hollywood glamour.
+        Every detail is intentional — nothing left to chance.
+      </p>
+      <p><a class="btn btn--ghost" href="/about/">Our Story</a></p>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="section bg-alt">
+    <div class="wrap">
+      <div class="center" style="margin-bottom:3rem;">
+        <span class="eyebrow">What We Offer</span>
+        <h2>Services</h2>
+        <hr class="rule" />
+      </div>
+      <div class="grid grid--3">
+        {services.map((s) => (
+          <article class="card">
+            <span class="icon">{s.data.icon}</span>
+            <h3>{s.data.title}</h3>
+            <p>{s.data.summary}</p>
+          </article>
+        ))}
+      </div>
+      <p class="center" style="margin-top:3rem;"><a class="btn btn--ghost" href="/services/">All Services</a></p>
+    </div>
+  </section>
+
+  <!-- Portfolio preview -->
+  {featured.length > 0 && (
+    <section class="section">
+      <div class="wrap">
+        <div class="center" style="margin-bottom:3rem;">
+          <span class="eyebrow">Recent Work</span>
+          <h2>Portfolio</h2>
+          <hr class="rule" />
+        </div>
+        <div class="grid grid--3">
+          {featured.map((p) => (
+            <a class="tile" href="/portfolio/">
+              <img src={p.data.cover} alt={p.data.title} loading="lazy" />
+              <figcaption>
+                {p.data.category && <span class="cat">{p.data.category}</span>}
+                <h3>{p.data.title}</h3>
+              </figcaption>
+            </a>
+          ))}
+        </div>
+        <p class="center" style="margin-top:3rem;"><a class="btn btn--ghost" href="/portfolio/">View Full Portfolio</a></p>
+      </div>
+    </section>
+  )}
+
+  <!-- CTA band -->
+  <section class="section bg-dark center">
+    <div class="wrap narrow">
+      <span class="eyebrow">Let's Create Something Beautiful</span>
+      <h2>Ready to style your celebration?</h2>
+      <hr class="rule" />
+      <p style="color:rgba(255,249,240,0.85);">Tell us about your event and we'll craft a custom proposal — defined by detail.</p>
+      <p style="margin-top:2rem; display:flex; gap:1rem; flex-wrap:wrap; justify-content:center;">
+        <a class="btn btn--gold" href={site.cta.href}>{site.cta.label}</a>
+        {ig && <a class="btn btn--ghost" href={`https://instagram.com/${ig}`} target="_blank" rel="noopener">Follow @{ig}</a>}
+      </p>
+    </div>
+  </section>
+</Base>

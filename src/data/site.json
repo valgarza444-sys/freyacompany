@@ -1,0 +1,20 @@
+{
+  "name": "Freya & Company",
+  "tagline": "Defined by Detail",
+  "description": "Freya & Company is a Texas-based event styling studio specializing in tablescaping, backdrop rentals, event styling, balloon decor, and audio guestbooks — refined, romantic, and timeless design for weddings, showers, and intimate celebrations.",
+  "url": "https://example.com",
+  "phone": "",
+  "email": "",
+  "serviceArea": "Texas & surrounding areas",
+  "address": "",
+  "hours": "By appointment",
+  "social": {
+    "instagram": "freyaandco.tx",
+    "facebook": "",
+    "linkedin": ""
+  },
+  "cta": {
+    "label": "Request a Quote",
+    "href": "/quote/"
+  }
+}

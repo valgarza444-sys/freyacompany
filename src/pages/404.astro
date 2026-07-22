@@ -1,0 +1,19 @@
+---
+import Base from '../layouts/Base.astro';
+import site from '../data/site.json';
+---
+
+<Base title="Page Not Found">
+  <section class="section center" style="min-height:52vh; display:flex; align-items:center;">
+    <div class="wrap narrow">
+      <span class="eyebrow">404</span>
+      <h1>This page slipped away</h1>
+      <hr class="rule" />
+      <p style="color:var(--muted);">The page you're looking for doesn't exist — but there's plenty more to see.</p>
+      <p style="margin-top:2rem; display:flex; gap:1rem; flex-wrap:wrap; justify-content:center;">
+        <a class="btn btn--gold" href="/">Back Home</a>
+        <a class="btn btn--ghost" href="/portfolio/">View Portfolio</a>
+      </p>
+    </div>
+  </section>
+</Base>
