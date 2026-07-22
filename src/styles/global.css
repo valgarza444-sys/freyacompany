@@ -295,11 +295,19 @@ a { color: inherit; }
 @keyframes cue { 0%,100% { opacity: 0.3; transform: scaleY(0.6); transform-origin: top; } 50% { opacity: 1; transform: scaleY(1); } }
 
 /* Gold marquee ribbon */
-.marquee { overflow: hidden; background: var(--black); color: var(--cream); border-block: 1px solid rgba(184,154,94,0.4); padding-block: 1.15rem; }
-.marquee__track { display: inline-flex; align-items: center; white-space: nowrap; will-change: transform; animation: marquee 32s linear infinite; }
+.marquee { overflow: hidden; background: var(--black); color: var(--cream); border-block: 1px solid rgba(184,154,94,0.4); padding-block: 1.35rem; }
+.marquee__track { display: inline-flex; align-items: center; white-space: nowrap; will-change: transform; animation: marquee 36s linear infinite; }
 .marquee:hover .marquee__track { animation-play-state: paused; }
-.marquee__track > * { padding-inline: 1.75rem; font-family: var(--font-body); font-weight: 400; text-transform: uppercase; letter-spacing: 0.28em; font-size: clamp(0.72rem, 0.62rem + 0.45vw, 0.95rem); }
-.marquee .dot { color: var(--gold); letter-spacing: 0; font-size: 0.7em; }
+.marquee__item {
+  font-family: var(--font-body); font-weight: 500; text-transform: uppercase;
+  letter-spacing: 0.34em; text-indent: 0.34em; /* balance trailing letter-space */
+  font-size: clamp(0.72rem, 0.64rem + 0.36vw, 0.9rem);
+  color: var(--cream); line-height: 1;
+}
+.marquee .dot {
+  color: var(--gold); font-size: 0.44rem; line-height: 1;
+  margin-inline: 1.9rem; transform: translateY(-0.06em); opacity: 0.9;
+}
 @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
 /* Ornamental divider — gold hairlines flanking a diamond */

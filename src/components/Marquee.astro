@@ -14,8 +14,8 @@ const loop = [...items, ...items];
   <div class="marquee__track">
     {loop.map((item) => (
       <>
-        <span>{item}</span>
-        <span class="dot">✦</span>
+        <span class="marquee__item">{item}</span>
+        <span class="dot" aria-hidden="true">◆</span>
       </>
     ))}
   </div>
