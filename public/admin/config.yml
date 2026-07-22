@@ -17,8 +17,8 @@ public_folder: "/images/uploads"
 # Editors work on a draft, then Publish. (Requires Netlify "Editorial Workflow" / PRs.)
 publish_mode: editorial_workflow
 
-site_url: https://example.com
-display_url: https://example.com
+site_url: https://freyacompany.xyz
+display_url: https://freyacompany.xyz
 logo_url: /favicon.svg
 
 collections:
