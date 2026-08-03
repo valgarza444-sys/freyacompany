@@ -2,7 +2,7 @@
 title: Coming Soon
 category: ""
 date: ""
-cover: https://freyacompany.xyz/images/portfolio/event-1-cover.svg
+cover: /images/uploads/chatgpt_image_aug_3_2026_09_09_34_am.png
 gallery: []
 featured: true
 order: 1
