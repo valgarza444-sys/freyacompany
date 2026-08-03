@@ -2,7 +2,7 @@
 title: Coming Soon
 category: ""
 date: ""
-cover: /images/uploads/chatgpt_image_aug_3_2026_09_09_34_am.png
+cover: /images/uploads/coming-soon-portrait-v2.png
 gallery: []
 featured: true
 order: 1
