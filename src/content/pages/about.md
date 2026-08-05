@@ -1,17 +1,26 @@
 ---
 title: About Freya & Company
 intro: Refined, romantic, and timeless event styling — defined by detail.
-image: /images/about.svg
+image: /images/uploads/about-photo-transparent.png
 ---
+Hi, I'm Valerie, founder of Freya & Company.
 
-Freya & Company was founded on a simple belief: the details are everything. Based
-in Texas, we design and style celebrations that feel intentional, elevated, and
-deeply personal — from intimate dinners and bridal showers to weddings and
-milestone events.
 
-Our aesthetic draws on the vintage and the romantic, with a touch of old-Hollywood
-glamour. We work closely with each client to translate a feeling into a fully
-realized setting — every linen, every place setting, every backdrop considered.
 
-*Replace this with your own story — your background, your inspiration, and what
-makes working with Freya & Company feel effortless.*
+I started Freya because I believe the moments that matter most deserve beautiful design, thoughtful intention, and genuine care.
+
+
+
+For me, event styling begins with listening. I want every client to feel heard, comfortable, and confident that their vision is in the right hands. Whether you know exactly what you want or have no idea where to start, my goal is to make the process feel effortless and enjoyable.
+
+
+
+I believe every detail shapes how a moment is experienced, and it's an honor to create spaces where memories are made.
+
+
+
+Thank you for trusting me to be a part of your story.
+
+
+
+Created with Intention. Defined by Detail.
