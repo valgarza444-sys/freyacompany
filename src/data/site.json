@@ -1,20 +1,20 @@
 {
+  "serviceArea": "League City and surrounding areas",
   "name": "Freya & Company",
-  "tagline": "Defined by Detail",
-  "description": "Freya & Company is a Texas-based event styling studio specializing in tablescaping, backdrop rentals, event styling, balloon decor, and audio guestbooks — refined, romantic, and timeless design for weddings, showers, and intimate celebrations.",
-  "url": "https://freyacompany.xyz",
-  "phone": "",
-  "email": "",
-  "serviceArea": "Texas & surrounding areas",
-  "address": "",
-  "hours": "By appointment",
   "social": {
     "instagram": "freyaandco.tx",
     "facebook": "",
     "linkedin": ""
   },
+  "phone": "",
+  "tagline": "Defined by Detail",
+  "url": "https://freyacompany.xyz",
+  "hours": "By appointment",
   "cta": {
     "label": "Request a Quote",
     "href": "/quote/"
-  }
+  },
+  "address": "",
+  "email": "",
+  "description": "Freya & Company is an event styling studio specializing in tablescaping, backdrop rentals, event styling, balloon decor, and audio guestbooks — refined, romantic, and timeless design for weddings, showers, and intimate celebrations."
 }
