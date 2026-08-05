@@ -1,7 +1,7 @@
 ---
 title: About Freya & Company
 intro: Refined, romantic, and timeless event styling — defined by detail.
-image: /images/about.svg
+image: /images/uploads/about-photo.jpg
 ---
 Hi, I'm Valerie, founder of Freya & Company.
 
