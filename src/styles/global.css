@@ -269,10 +269,29 @@ a { color: inherit; }
   font-size: clamp(1.5rem, 1rem + 2.2vw, 2.7rem); letter-spacing: 0.02em;
   margin-bottom: 0.25em;
 }
-.hero h1 {
-  font-family: var(--font-deco); font-weight: 700; text-transform: uppercase;
-  letter-spacing: 0.05em; line-height: 1.14;
-  font-size: clamp(2.2rem, 1.1rem + 4.2vw, 4.6rem);
+/* Freya & Company — main hero heading */
+.hero h1.hero__brand-title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-style: normal;
+  text-transform: none;
+  letter-spacing: 0.01em;
+  line-height: 1.08;
+  font-size: clamp(3rem, 6vw, 6rem);
+  max-width: 100%;
+  margin-bottom: 0.5rem;
+}
+
+/* Defined by Detail — supporting tagline */
+.hero__tagline {
+  display: block;
+  font-family: var(--font-script);
+  font-size: clamp(2rem, 3.5vw, 3.5rem);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  text-transform: none;
+  color: var(--champagne);
+  margin-bottom: 1.5rem;
 }
 .hero .eyebrow { position: relative; padding-left: 3.6rem; }
 .hero .eyebrow::before { content: ""; position: absolute; left: 0; top: 50%; width: 2.6rem; height: 1px; background: var(--champagne); }
