@@ -12,6 +12,7 @@ export const FONTS = {
   'Cinzel':              { google: 'Cinzel:wght@400;500;600;700', stack: "'Cinzel', Georgia, serif" },
   'Cinzel Decorative':   { google: 'Cinzel+Decorative:wght@400;700;900', stack: "'Cinzel Decorative', Georgia, serif" },
   'Montserrat':          { google: 'Montserrat:wght@300;400;500;600', stack: "'Montserrat', -apple-system, sans-serif" },
+    'DM Sans':             { google: 'DM+Sans:wght@300;400;500;600;700', stack: "'DM Sans', Arial, sans-serif" },
   'Jost':                { google: 'Jost:wght@300;400;500', stack: "'Jost', sans-serif" },
   'Italianno':           { google: 'Italianno', stack: "'Italianno', 'Snell Roundhand', cursive" },
   'Great Vibes':         { google: 'Great+Vibes', stack: "'Great Vibes', cursive" },
