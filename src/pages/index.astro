@@ -13,6 +13,8 @@ const featured = (await getCollection('portfolio'))
   .sort((a, b) => a.data.order - b.data.order)
   .slice(0, 3);
 const ig = site.social.instagram;
+// Hero wordmark: first word in script, the rest in serif ("Freya" + "& Company")
+const [brandScript, ...brandRest] = site.name.split(' ');
 ---
 
 <Base>
@@ -22,7 +24,7 @@ const ig = site.social.instagram;
     <div class="hero__frame"></div>
     <div class="wrap hero__inner">
       <span class="eyebrow" data-reveal style="--d:.1s">{home.heroEyebrow}</span>
-      <h1 class="hero__brand-title" data-reveal style="--d:.2s">{site.name}</h1>
+      <h1 class="hero__brand-title" data-reveal style="--d:.2s"><span class="hero__brand-script">{brandScript}</span> <span class="hero__brand-serif">{brandRest.join(' ')}</span></h1>
 <span class="hero__tagline" data-reveal style="--d:.35s">{site.tagline}</span>
       <p data-reveal style="--d:.55s">{home.heroIntro}</p>
       <p data-reveal style="--d:.72s; margin-top:2rem; display:flex; gap:1rem; flex-wrap:wrap;">
