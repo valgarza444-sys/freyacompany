@@ -15,15 +15,7 @@ const isActive = (href: string) =>
 <header class="site-header">
   <div class="wrap bar">
     <a class="brand brand--lockup" href="/" aria-label={`${site.name} — home`}>
-      <svg class="brand__mark" viewBox="0 0 400 400" aria-hidden="true">
-        <circle cx="200" cy="200" r="176" fill="none" stroke="currentColor" stroke-width="6"/>
-        <circle cx="200" cy="200" r="160" fill="none" stroke="currentColor" stroke-width="3" opacity="0.5"/>
-        <text x="205" y="272" text-anchor="middle" font-family="var(--font-display)" font-style="italic" font-size="220" fill="currentColor">F</text>
-      </svg>
-      <span class="brand__text">
-        {site.name}
-        <small>{site.tagline}</small>
-      </span>
+      <img class="brand__logo" src="/images/logo/freya-logo-header.png" width="589" height="168" alt={site.name} />
     </a>
 
     <nav class="nav" aria-label="Primary">
