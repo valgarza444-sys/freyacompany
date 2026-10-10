@@ -120,8 +120,8 @@ a { color: inherit; }
 .btn--ghost:hover { background: var(--ink); color: var(--cream); }
 .btn--gold { background: var(--gold); border-color: var(--gold); color: var(--black); }
 .btn--gold:hover { background: transparent; color: var(--gold); }
-.bg-dark .btn--ghost { color: var(--cream); border-color: var(--champagne); }
-.bg-dark .btn--ghost:hover { background: var(--champagne); color: var(--black); }
+.bg-dark .btn--ghost, .hero .btn--ghost { color: var(--cream); border-color: var(--champagne); }
+.bg-dark .btn--ghost:hover, .hero .btn--ghost:hover { background: var(--champagne); color: var(--black); }
 
 /* ---------- Grids ---------- */
 .grid { display: grid; gap: clamp(1.25rem, 3vw, 2.25rem); }
