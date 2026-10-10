@@ -14,64 +14,25 @@ const events = (await getCollection('portfolio')).sort(
       <span class="eyebrow">Our Work</span>
       <h1>Portfolio</h1>
       <div class="ornament"><b>◆</b></div>
-      <p style="color:var(--muted);">A selection of events we've styled. Tap any event to see more of the details.</p>
+                <p style="color:var(--muted);">We're currently updating our portfolio with new projects — check back soon to see our latest work!</p>
       </div>
   </section>
 
   <section class="section" style="padding-top:0;">
     <div class="wrap">
-      <div class={`grid grid--3${events.length < 3 ? ' grid--few' : ''}`}>
-        {events.map((p, i) => {
-          const media = [p.data.cover, ...p.data.gallery];
-          return (
-            <>
-            <figure class="tile" data-reveal style={`margin:0; --d:${(i % 3) * 0.09}s`}>
-              <button class="tile__open" type="button" data-gallery={`gallery-${p.id}`} aria-label={`View ${p.data.title} gallery (${media.length} items)`}>
-                <img src={p.data.cover} alt={p.data.title} loading="lazy" />
-                <figcaption>
-                  {p.data.category && <span class="cat">{p.data.category}{p.data.date ? ` · ${p.data.date}` : ''}</span>}
-                  <h3>{p.data.title}</h3>
-                  {media.length > 1 && <span class="tile__count">View {media.length} photos &amp; video →</span>}
-                </figcaption>
-              </button>
-            </figure>
-              <dialog class="gallery" id={`gallery-${p.id}`} aria-label={`${p.data.title} gallery`}>
-                <div class="gallery__head">
-                  <div>
-                    {p.data.category && <span class="eyebrow">{p.data.category}{p.data.date ? ` · ${p.data.date}` : ''}</span>}
-                    <h2>{p.data.title}</h2>
-                  </div>
-                  <button class="gallery__close" type="button" aria-label="Close gallery">×</button>
-                </div>
-                {p.body && <p class="gallery__desc">{p.body.trim()}</p>}
-                <div class="gallery__items">
-                  {media.map((src) => (
-                    /\.(mp4|webm|mov)$/i.test(src)
-                      ? <video src={src} poster={src.replace(/\.(mp4|webm|mov)$/i, '-poster.jpg')} autoplay muted loop playsinline preload="none" aria-label={`${p.data.title} video`}></video>
-                      : <img src={src} alt={p.data.title} loading="lazy" />
-                  ))}
-                </div>
-              </dialog>
-            </>
-          );
-        })}
+      <div class="grid grid--3">
+        {events.map((p, i) => (
+          <figure class="tile" data-reveal style={`margin:0; --d:${(i % 3) * 0.09}s`}>
+            <img src={p.data.cover} alt={p.data.title} loading="lazy" />
+            <figcaption>
+              {p.data.category && <span class="cat">{p.data.category}{p.data.date ? ` · ${p.data.date}` : ''}</span>}
+              <h3>{p.data.title}</h3>
+            </figcaption>
+          </figure>
+        ))}
       </div>
     </div>
   </section>
-
-  <script>
-    document.querySelectorAll('[data-gallery]').forEach((btn) => {
-      const dlg = document.getElementById(btn.dataset.gallery);
-      if (!dlg) return;
-      btn.addEventListener('click', () => {
-        dlg.showModal();
-        dlg.querySelectorAll('video').forEach((v) => { v.play().catch(() => {}); });
-      });
-      dlg.querySelector('.gallery__close')?.addEventListener('click', () => dlg.close());
-      dlg.addEventListener('click', (e) => { if (e.target === dlg) dlg.close(); });
-      dlg.addEventListener('close', () => dlg.querySelectorAll('video').forEach((v) => v.pause()));
-    });
-  </script>
 
   <section class="section bg-dark center" style="padding-top:0; background:var(--black);">
     <div class="wrap narrow" style="padding-top:var(--section-y);">

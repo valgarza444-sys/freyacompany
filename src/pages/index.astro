@@ -87,9 +87,9 @@ const [brandScript, ...brandRest] = site.name.split(' ');
           <h2>Portfolio</h2>
           <div class="ornament"><b>◆</b></div>
         </div>
-        <div class={`grid grid--3${featured.length < 3 ? ' grid--few' : ''}`}>
+        <div class="grid grid--3">
           {featured.map((p, i) => (
-            <a class={`tile${i === 0 && featured.length >= 3 ? ' tile--feature' : ''}`} href="/portfolio/" data-reveal style={`--d:${i * 0.1}s`}>
+            <a class={`tile${i === 0 ? ' tile--feature' : ''}`} href="/portfolio/" data-reveal style={`--d:${i * 0.1}s`}>
               <img src={p.data.cover} alt={p.data.title} loading="lazy" />
               <figcaption>
                 {p.data.category && <span class="cat">{p.data.category}</span>}
