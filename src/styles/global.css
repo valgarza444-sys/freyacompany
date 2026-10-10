@@ -411,3 +411,24 @@ a { color: inherit; }
 .skip { position: absolute; left: -9999px; }
 .skip:focus { left: 1rem; top: 1rem; background: var(--ink); color: var(--cream); padding: 0.6rem 1rem; z-index: 100; }
 @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
+
+/* ---------- Portfolio gallery (click a tile to open) ---------- */
+.tile__open { all: unset; display: block; position: relative; width: 100%; height: 100%; cursor: pointer; }
+.tile__open:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+.tile__count { display: block; margin-top: 0.45rem; font-family: var(--font-body); font-size: 0.66rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--champagne); }
+.gallery {
+  width: min(1100px, 100% - 2rem); max-height: calc(100dvh - 2rem);
+  padding: clamp(1.25rem, 3vw, 2.5rem); border: 1px solid var(--line);
+  background: var(--cream); color: var(--ink); overflow-y: auto;
+}
+.gallery::backdrop { background: rgba(28, 26, 23, 0.82); }
+.gallery__head { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; }
+.gallery__head h2 { margin: 0.3rem 0 0; }
+.gallery__close { all: unset; cursor: pointer; font-size: 2.2rem; line-height: 1; color: var(--ink); padding: 0 0.25rem; }
+.gallery__close:focus-visible { outline: 2px solid var(--gold); }
+.gallery__desc { color: var(--muted); max-width: 60ch; margin: 1rem 0 1.5rem; }
+.gallery__items { columns: 2 280px; column-gap: 1rem; }
+.gallery__items img, .gallery__items video { width: 100%; height: auto; display: block; margin: 0 0 1rem; break-inside: avoid; background: var(--ivory); }
+/* Center the grid when there are only one or two events */
+.grid.grid--few { display: flex; flex-wrap: wrap; justify-content: center; }
+.grid.grid--few > .tile { flex: 0 1 min(440px, 100%); }
