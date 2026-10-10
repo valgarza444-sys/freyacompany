@@ -30,7 +30,10 @@ export function buildFontTheme(theme = {}) {
   };
   // Montserrat is always needed for the UI (nav/buttons/labels).
   const families = new Set(['Montserrat']);
-  for (const name of Object.values(chosen)) {
+  // The decorative font isn't used anywhere on the site right now, so skip
+  // downloading it (saves a font request on every page).
+  for (const [cssVar, name] of Object.entries(chosen)) {
+    if (cssVar === '--font-deco') continue;
     if (FONTS[name]) families.add(name);
   }
   const href =

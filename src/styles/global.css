@@ -120,8 +120,8 @@ a { color: inherit; }
 .btn--ghost:hover { background: var(--ink); color: var(--cream); }
 .btn--gold { background: var(--gold); border-color: var(--gold); color: var(--black); }
 .btn--gold:hover { background: transparent; color: var(--gold); }
-.bg-dark .btn--ghost { color: var(--cream); border-color: var(--champagne); }
-.bg-dark .btn--ghost:hover { background: var(--champagne); color: var(--black); }
+.bg-dark .btn--ghost, .hero .btn--ghost { color: var(--cream); border-color: var(--champagne); }
+.bg-dark .btn--ghost:hover, .hero .btn--ghost:hover { background: var(--champagne); color: var(--black); }
 
 /* ---------- Grids ---------- */
 .grid { display: grid; gap: clamp(1.25rem, 3vw, 2.25rem); }
@@ -190,6 +190,7 @@ a { color: inherit; }
 .brand__mark { width: 42px; height: 42px; color: var(--gold); flex: none; }
 .brand__mark text { font-family: var(--font-display); }
 .brand__text { line-height: 1.05; }
+.brand__logo { display: block; height: clamp(44px, 1.8rem + 2.2vw, 68px); width: auto; }
 .nav { display: none; gap: 2rem; align-items: center; }
 .nav a:not(.btn) { font-family: var(--font-body); text-decoration: none; font-size: 0.78rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink); opacity: 0.8; }
 .nav a:not(.btn):hover, .nav a:not(.btn)[aria-current="page"] { opacity: 1; color: var(--gold); }
@@ -279,8 +280,22 @@ a { color: inherit; }
   line-height: 1.08;
   font-size: clamp(3rem, 6vw, 6rem);
   max-width: 100%;
+  margin-top: 0.3em;
   margin-bottom: 0.5rem;
+  --hero-gold: color-mix(in srgb, var(--champagne) 50%, var(--gold));
 }
+/* "Freya" in the signature script, larger, in champagne gold */
+.hero__brand-script {
+  font-family: var(--font-script);
+  font-weight: 400;
+  font-size: 1.5em;
+  line-height: 0.7;
+  letter-spacing: 0;
+  color: var(--hero-gold);
+  margin-right: 0.04em;
+}
+/* "& Company" stays in Cormorant Garamond, cream */
+.hero__brand-serif { white-space: nowrap; }
 
 /* Defined by Detail — supporting tagline */
 .hero__tagline {
@@ -290,7 +305,10 @@ a { color: inherit; }
   font-weight: 400;
   letter-spacing: 0.01em;
   text-transform: none;
-  color: var(--champagne);
+  color: color-mix(in srgb, var(--champagne) 50%, var(--gold));
+  line-height: 1.1;
+  margin-top: 0.15em;
+  padding-left: 1.2em;
   margin-bottom: 1.5rem;
 }
 .hero .eyebrow { position: relative; padding-left: 3.6rem; }
@@ -324,8 +342,8 @@ a { color: inherit; }
 .marquee__track { display: inline-flex; align-items: center; white-space: nowrap; will-change: transform; animation: marquee 36s linear infinite; }
 .marquee:hover .marquee__track { animation-play-state: paused; }
 .marquee__item {
-  font-family: var(--font-display); font-style: italic; font-weight: 500;
-  font-size: clamp(1.15rem, 0.95rem + 0.9vw, 1.7rem);
+  font-family: var(--font-serif); font-style: normal; font-weight: 400;
+  font-size: clamp(1.05rem, 0.9rem + 0.7vw, 1.45rem);
   color: var(--cream); line-height: 1; letter-spacing: 0.01em;
 }
 .marquee .dot {
