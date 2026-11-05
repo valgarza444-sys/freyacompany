@@ -4,7 +4,7 @@ import site from '../data/site.json';
 
 const eventTypes = [
   'Wedding', 'Bridal Shower', 'Baby Shower', 'Birthday',
-  'Anniversary', 'Engagement', 'Corporate Event', 'Private Dinner', 'Other',
+  'Anniversary', 'Engagement', 'Corporate Event', 'Realtor Event', 'Private Dinner', 'Other',
 ];
 const serviceOptions = [
   'Tablescaping', 'Backdrop Rentals', 'Event Styling', 'Balloon Decor', 'Audio Guestbook',
@@ -90,7 +90,7 @@ const ig = site.social.instagram;
         </div>
 
         <div class="field">
-          <label for="guests">Approximate Guest Count</label>
+          <label for="guests">Approximate Guest Count (optional)</label>
           <input id="guests" name="guests" type="number" min="1" inputmode="numeric" />
         </div>
 
